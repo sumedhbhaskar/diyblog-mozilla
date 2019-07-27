@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<h1>comment for: {{ blogboi.blogtitle }}{{ blogboi.pk }}</h1>
+
+<form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit" />
+        
+    </form>
+
+{% endblock %}

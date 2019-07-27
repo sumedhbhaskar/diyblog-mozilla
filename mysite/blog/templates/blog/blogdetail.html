@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>
+    Blog {{ object.pk }}
+</h1>
+
+
+
+        <h1>{{ object.blogtitle }}</h1>
+        <h4><strong>Date:</strong>{{ object.blogdate }} </h4>
+        <h5><strong>Author:</strong><a href='{% url 'blogger-details' object.blogauthor.pk %}'>{{ object.blogauthor }}</a></h5>
+        <p>{{ object.blogtext }}</p>
+
+        <h5>comment section:</h5>
+        <ul>
+                {% for x in object.comment.all %}
+                <li>{{ x.commentDate }}{{ x.comment }}</li>
+                {% endfor %}
+        </ul>
+
+        <p><a href='{% url 'blog-newcomment' object.pk %}''><strong>Add new comment</strong></a></p>
+            
+    
+{% endblock %}

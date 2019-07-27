@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>Blogger details</h1>
+<ul>
+    
+    <li>
+        <h2>{{ babes.authorName }}</h2>
+        <hr>
+        <p>{{ babes.authorBio }}</p>
+        
+    </li>
+
+    <h2>His/Her Blogs:-</h2>
+    <ul>
+        {% for love in chicks %}
+        <li><a href="{{ love.get_absolute_url }}">{{ love.blogtitle }}
+            {{ love.blogdate }}
+        </a></li>
+        {% endfor %}
+    </ul>
+</ul>
+{% endblock %}    
+
